@@ -41,7 +41,7 @@ Azure portal とAzure Resource Manager テンプレートを使用して、リ�
 
 このタスクでは、クラウド シェル内で Azure PowerShell セッションを使用して、リソース グループと Azure マネージド ディスクを作成します。
 
-1. 前のラボで作成した **az104-03b-rg1 **リソース グループと同じ Azure リージョンにリソース グループを作成するには、Cloud Shell 内の PowerShell セッションから次を実行します。
+1. 前のラボで作成した **az104-03b-rg1** リソース グループと同じ Azure リージョンにリソース グループを作成するには、Cloud Shell 内の PowerShell セッションから次を実行します。
 
    ```pwsh
    $location = (Get-AzResourceGroup -Name az104-03b-rg1).Location
