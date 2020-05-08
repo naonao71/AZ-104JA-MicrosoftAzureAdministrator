@@ -19,6 +19,7 @@ Azure portal とAzure Resource Manager テンプレートを使用して、リ�
 + タスク 2: Azure PowerShell を使用してリソース グループと Azure マネージド ディスクを作成する
 + タスク 3: Azure PowerShell を使用してマネージド ディスクを構成する
 
+## 予想時間: 20分間
 ## 指示
 
 ### 演習 1
@@ -92,6 +93,12 @@ Azure portal とAzure Resource Manager テンプレートを使用して、リ�
 
    ```pwsh
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+   ```
+
+1. 現在の SKU が **Standard_LRS** であることを確認するには、次を実行します。
+
+   ```pwsh
+   (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
 1. ディスク パフォーマンス SKU を **Premium_LRS** に変更するには 、Cloud Shell 内の PowerShell セッションで次の手順を実行します。

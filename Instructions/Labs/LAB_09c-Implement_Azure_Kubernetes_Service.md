@@ -9,8 +9,7 @@ lab:
 
 ## ラボ シナリオ
 
-Contoso には、Azure Container Instances を使用して実行するのに適していない多層アプリケーションが多数あります。コンテナー化されたワークロードとして実行できるかどうかを判断するために、Kubernetes をコンテナー オーケストレーターとして使用して評価します。また、簡単化されたデプロイの確認やスケーリング
-機能など、Azure Kubernetes Service をテストして、さらなる管理上のオーバーヘッドの削減を図ります。
+Contoso には、Azure Container Instances を使用して実行するのに適していない多層アプリケーションが多数あります。コンテナー化されたワークロードとして実行できるかどうかを判断するために、Kubernetes をコンテナー オーケストレーターとして使用して評価します。また、簡単化されたデプロイの確認やスケーリング機能など、Azure Kubernetes Service をテストして、さらなる管理上のオーバーヘッドの削減を図ります。
 
 ## 目標
 
@@ -19,6 +18,8 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 + タスク 1: Azure Kubernetes Service クラスターをデプロイする
 + タスク 2: Azure Kubernetes Service クラスターにポッドをデプロイする
 + タスク 3: Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングする
+
+## 予想時間: 40分間
 
 ## 手順
 
@@ -41,7 +42,6 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
     | Kubernetes クラスター名 | **az104-9c-aks1** |
     | リージョン | Kubernetes クラスターをプロビジョニングできるリージョンの名前 |
     | Kubernetes バージョン | 既定値 |
-    | DNS 名接頭辞 | グローバルに一意の有効な DNS ホスト名 |
     | ノード サイズ | 既定値 |
     | ノード数 | **1** |
 
@@ -64,7 +64,8 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
     | 設定 | 値 |
     | ---- | ---- |
-    | HTTP アプリケーション ルーティング | **No** |
+    | DNS 名接頭辞 | グローバルに一意の有効な DNS ホスト名 |
+	| HTTP アプリケーション ルーティング | **No** |
     | 負荷分散装置 | **Standard** |
     | ネットワーク構成 | **Advanced** |
 

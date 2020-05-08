@@ -21,6 +21,8 @@ Contoso のユーザーが Azure AD を使用して認証できるようにす�
 + タスク 3: Azure Active Directory (AD) テナントを作成する
 + タスク 4: Azure AD ゲスト ユーザーを管理する 
 
+## 予想時間: 30分間
+
 ## 指示
 
 ### 演習 1
