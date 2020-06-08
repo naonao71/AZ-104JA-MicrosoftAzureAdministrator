@@ -1,4 +1,4 @@
-﻿# 間もなく提供予定
+
 # AZ-104: Microsoft Azure 管理者
 
 - **[チュートリアルへのリンク (HTML 形式)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
