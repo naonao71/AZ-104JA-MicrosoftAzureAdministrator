@@ -201,7 +201,6 @@ Contoso 社は、ボストン、ニューヨーク、シアトルの各オフィ
    ```pwsh
    Test-NetConnection -ComputerName 10.52.0.4 -Port 3389 -InformationLevel 'Detailed'
    ```
-     >**注意**: ピアリングの設定で転送トラフィックが許可されていないため、このテストは失敗します
      
 1. ラボ コンピューターの Azure portal に戻り、「**仮想マシン**」 ブレードに戻ります。 
 
