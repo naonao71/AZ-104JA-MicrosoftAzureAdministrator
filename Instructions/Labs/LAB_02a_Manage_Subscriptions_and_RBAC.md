@@ -62,9 +62,9 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
    ```json
    {
-      "Name": "サポート要求共同作成者 (カスタム)",
+      "Name": "Support Request Contributor (Custom)",
       "IsCustom": true,
-      "Description": "サポート要求を作成できます",
+      "Description": "Allows to create support requests",
       "Actions": [
           "Microsoft.Resources/subscriptions/resourceGroups/read",
           "Microsoft.Support/*"
