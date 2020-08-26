@@ -293,14 +293,14 @@ Azure 仮想ネットワークの機能を詳しく調べる必要がありま�
 
 1. Azure portal で、右上にあるアイコンをクリックして、「**Cloud Shell**」 の **PowerShell** セッションを開きます。
 
-1. Cloud Shell ペインで、新しく作成した DNS ゾーン内の **az104-04-vm0** DNS レコード セットの外部名前解決について、次を実行してテストします (`[Name server 1]いうプレースホルダーを、このタスクで先にメモした**「Name server 1」** に置き換え、「domain name」プレースホルダーをこのタスクで作成した DNS 名に置き換えます)。
+1. 「Cloud Shell」ウィンドウで、次を実行して、新しく作成した DNS ゾーンで **az104-04-vm0** DNS レコード セットの外部名の解決をテストします (プレースホルダ `[Name server 1]` を、[] ブラケットを含めて本タスクの前半でメモした **[Name server 1]** に差し替え、`[domain name]` プレースホルダを本タスクの前半で作成した DNS ドメイン名に差し替えます)。
 
    ```pwsh
    nslookup az104-04-vm0.[domain name] [Name server 1]
    ```
 1. コマンドの出力に、**az104-04-vm0** のパブリック IP アドレスが含まれていることを確認します。
 
-1. Cloud Shell ペインで、新しく作成した DNS ゾーン内の **az104-04-vm1** DNS レコード セットの外部名前解決について、次を実行してテストします (`[Name server 1]`というプレースホルダーを、このタスクで先にメモした**「Name server 1」**に置き換え、`[domain name]` プレースホルダーをこのタスクで作成した DNS 名に置き換えます)。
+1. Cloud Shell ペインで、新しく作成した DNS ゾーン内の **az104-04-vm1** DNS レコード セットの外部名前解決について、次を実行してテストします (`[Name server 1]`というプレースホルダーを、このタスクで先にメモした **[Name server 1]** に置き換え、`[domain name]` プレースホルダーをこのタスクで作成した DNS 名に置き換えます)。
 
    ```pwsh
    nslookup az104-04-vm1.[domain name] [Name server 1]

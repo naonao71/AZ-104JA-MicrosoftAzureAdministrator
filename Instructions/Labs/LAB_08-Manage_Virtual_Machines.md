@@ -330,6 +330,22 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
 1. 「Cloud Shell」ウィンドウを閉じます。
     
 
+#### タスク 4: Microsoft.Insights および Microsoft.AlertsManagement リソース プロバイダーを登録します。
+
+1. Azure portal の右上にあるアイコンをクリックして **Azure Cloud Shell** を開きます。
+
+1. **Bash** または **PowerShell** の選択確認画面が表示されたら、**PowerShell** を選択します。
+ 
+    >**注**: **Cloud Shell** を使い始めるのが初めての場合は、「**ストレージがマウントされていません**」というメッセージが表示されます。このメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、「**ストレージの作成**」をクリックします。 
+	
+1. 「Cloud Shell」ペインから、次の操作を実行して、Microsoft.Insights および Microsoft.AlertsManagement リソース プロバイダーを登録します。
+
+   ```pwsh
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
+   
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
+   ```
+
 #### タスク 5: Azure portal を使用して、ゾーン復元可能な Azure Virtual Machine Scale Sets をデプロイする
 
 このタスクでは、Azure portalを使用して可用性ゾーン間でAzure 仮想マシン スケール セットをデプロイします。
@@ -522,8 +538,6 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
 1. Azure portal で右上にあるアイコンをクリックして **Azure Cloud Shell** を開きます。
 
 1. **Bash** または **PowerShell** のいずれかを選択するように求められた場合、**PowerShell** を選択します。
-
-    >**注**: **Cloud Shell** を初めて起動し、「 **ストレージがマウントされていません**」というメッセージが表示されたら、このラボで使用しているサブスクリプションを選択し、「**ストレージの作成**」 をクリックします。 
 
 1. 「クラウド シェル」 ウィンドウで、次のコマンドを実行して、Azure 仮想マシン スケール セット  **az10408vms0** の前にあるロード バランサーのパブリック IP アドレスを特定します。
 
