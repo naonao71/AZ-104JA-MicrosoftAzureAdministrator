@@ -1,7 +1,7 @@
 ---
 title: オンライン ホステッド インストラクション
 permalink: index.html
-layout: ホーム
+layout: home
 ---
 
 # コンテンツ ディレクトリ
