@@ -1,7 +1,6 @@
-
 # AZ-104: Microsoft Azure 管理者
 
-- **[チュートリアルへのリンク (HTML 形式)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
+- **[ラボへのリンク (HTML 形式)](https://microsoftlearning.github.io/AZ-104JA-MicrosoftAzureAdministrator/)**
 - **MCT の場合** - [MCT 用 GitHub ユーザーガイド](https://microsoftlearning.github.io/MCT-User-Guide-JA/)を参照してください
 - **ラボの手順を手動でビルドする必要がありますか?** - 手順は[MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) リポジトリを参照してください
 

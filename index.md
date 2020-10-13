@@ -1,4 +1,4 @@
----
+﻿---
 title: オンライン ホステッド インストラクション
 permalink: index.html
 layout: home
@@ -6,9 +6,11 @@ layout: home
 
 # コンテンツ ディレクトリ
 
-ラボの演習およびデモへの各ハイパーリンクは次のとおりです。
+必要なラボ ファイルは、[こちらからダウンロード](https://github.com/MicrosoftLearning/AZ-104JA-MicrosoftAzureAdministrator/archive/master.zip)できます
 
-## 課題
+各ラボの演習とデモへのハイパーリンクを以下に一覧表示します。
+
+## 演習
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
 | モジュール | ラボ |

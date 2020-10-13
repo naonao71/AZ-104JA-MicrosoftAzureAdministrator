@@ -1,7 +1,7 @@
 ﻿---
-ラボ:
-    タイトル: "03a - Azure portal を使用して Azure リソースを管理する"
-    モジュール: "モジュール 03 - Azure 管理"
+lab:
+    title: '03a - Azure portal を使用して Azure リソースを管理する'
+    module: 'モジュール 03 - Azure 管理'
 ---
 
 # ラボ 03a - Azure portal を使用して Azure リソースを管理する
@@ -29,7 +29,7 @@
 
 このタスクでは、Azure portal を使用してリソース グループを作成し、リソース グループにディスクを作成します。
 
-1. [Azure portal](https://portal.azure.com) にログインします。
+1. 「Azure portal](https://portal.azure.com) にログインします。
 
 1. 「**リソース グループ**」を検索して選択します。 
 
