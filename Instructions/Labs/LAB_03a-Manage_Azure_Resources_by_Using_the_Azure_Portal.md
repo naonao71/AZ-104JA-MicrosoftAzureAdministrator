@@ -29,7 +29,7 @@ lab:
 
 このタスクでは、Azure portal を使用してリソース グループを作成し、リソース グループにディスクを作成します。
 
-1. 「Azure portal](https://portal.azure.com) にログインします。
+1. [Azure portal](https://portal.azure.com) にログインします。
 
 1. 「**リソース グループ**」を検索して選択します。 
 
