@@ -1,8 +1,9 @@
 # AZ-104: Microsoft Azure 管理者
 
+> **Microsoft 公式カリキュラムで使用したラボの動画へのリンクが付いた、「ラボの録画とデモ」(https://github.com/MicrosoftLearning/Lab-Demo-Recordings)リポジトリが用意されています。Microsoft 認定トレーナーはこれを使用して、ポートフォリオで使用のハンズオン ラボの録画 (音声なしのバージョン) を簡単に利用することができます。**
+
 - **[ラボへのリンク (HTML 形式)](https://microsoftlearning.github.io/AZ-104JA-MicrosoftAzureAdministrator/)**
 - **MCT の場合** - [MCT 用 GitHub ユーザーガイド](https://microsoftlearning.github.io/MCT-User-Guide-JA/)を参照してください
-- **ラボの手順を手動でビルドする必要がありますか?** - 手順は[MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) リポジトリを参照してください
 
 ## ここで行うこと
 
