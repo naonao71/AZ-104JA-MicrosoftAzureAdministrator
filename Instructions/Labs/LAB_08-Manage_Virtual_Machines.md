@@ -110,7 +110,7 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
     | Network Interface Name | **az104-08-vm1-nic1** |
     | Virtual Machine Name | **az104-08-vm1** |
     | Virtual Machine Computer Name | **az104-08-vm1** |
-    | Admin Username： | **Student** |
+    | Admin Username | **Student** |
     | Admin Password | **Pa55w.rd1234** |
     | Zone | **2** |
 
@@ -565,8 +565,8 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
     | 設定 | 値 | 
     | --- | --- |
     | LUN | **0** |
-    | ストレージの種類 | **Standard HDD** |
     | サイズ(GiB) | **32** |
+    | ストレージの種類 | **Standard HDD** |
     | ホスト キャッシュ | **なし** |
 
 1. 変更を保存して、**az10408vms0** ブレードの **「設定」** セクションで、 **「インスタンス」** をクリックし、仮想マシン スケール セットの 2 つのインスタンスの横にあるチェック ボックスをオンにし、**「アップグレード」** をクリックし、確認が求められたときに、**「はい」** をクリックします。
