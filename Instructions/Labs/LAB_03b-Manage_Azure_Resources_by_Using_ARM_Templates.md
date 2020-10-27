@@ -81,14 +81,6 @@ Azure portal を使用して、リソースのプロビジョニングとリソ�
 
     >**注意**: これらのパラメーターは、現在のデプロイには適用されないので削除されます。特に、sourceResourceId、sourceUri、osType および hyperVGeneration パラメーターは、既存の VHD ファイルから Azure ディスクを作成するのに適用できます。
 
-1. さらに、次の行から末尾のコンマを削除します。
-
-   ```json
-   "diskSizeGB": "[parameters('diskSizeGb')]",
-   ```
-
-    >**注**: これは、JSON ベースの ARM テンプレートの構文規則を考慮するために必要です。
-
 1. 変更内容を保存します｡
 
 1. 「**カスタム デプロイ**」 ブレードに戻って、 「**パラメーターを編集**」 をクリックします。
@@ -108,6 +100,7 @@ Azure portal を使用して、リソースのプロビジョニングとリソ�
     | Disk size Gb | **32** |
     | Create Option | **empty** |
     | ディスク暗号化セットの種類 | **EncryptionAtRestWithPlatformKey** |
+    | Network Access Policy | **AllowAll** |
 
 1. 「**作成**」をクリックします。
 
