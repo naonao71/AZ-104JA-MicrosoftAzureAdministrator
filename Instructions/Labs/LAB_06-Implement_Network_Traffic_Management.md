@@ -44,7 +44,7 @@ lab:
 
 1. Cloud Shell ペインのツールバーで、**ファイルのアップロード/ダウンロード** アイコンをクリックします。 ドロップダウン メニューで、 **アップロード**をクリックして、ファイル **\\Allfiles\\Module_06\\az104-06-vms-template.json**、**\\Allfiles\\Labs\\06\\az104-06-vm-template.json**、および **\\Allfiles\\Labs\\06\\az104-06-vm-parameters.json** を Cloud Shell ホームディレクトリにアップロードします。
 
-1. 「Cloud Shell」 ペインから次を実行して、最初の Virtual Network と Virtual Machines のペアをホストする最初のリソース グループを作成します (`[Azure_region]` プレースホルダーを Azure Virtual Machines をデプロイする Azure リージョンの名前に置き換えます）。("(Get-AzLocation).Location" コマンドレットを次のとおり実行して、リージョン名を一覧表示します):
+1. 「Cloud Shell」 ペインから次を実行して、最初の Virtual Network と Virtual Machines のペアをホストする最初のリソース グループを作成します (`[Azure_region]` プレースホルダーを Azure Virtual Machines をデプロイする Azure リージョンの名前に置き換えます）。(「(Get-AzLocation).Location」 コマンドレットを次のとおり実行して、リージョン名を一覧表示します):
 
    ```pwsh
    $location = '[Azure_region]'

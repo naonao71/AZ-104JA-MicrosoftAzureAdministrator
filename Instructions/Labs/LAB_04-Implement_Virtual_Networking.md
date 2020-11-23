@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '04 - 仮想ネットワークの実装'
     module: 'モジュール 04 - 仮想ネットワーク'
@@ -89,7 +89,7 @@ Azure 仮想ネットワークの機能を詳しく調べる必要がありま�
       -TemplateParameterFile $HOME/az104-04-vms-parameters.json
    ```
 
-    >**注意**: ARM テンプレートをデプロイするこの方法では、Azure PowerShell を使用します。同等の Azure CLI コマンド **az deployment create** を実行して、同じタスクを実行することもできます (詳細については、[Resource Manager テンプレートおよび Azure CLI を使用したリソースのデプロイ](https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli)』を参照してください)。
+    >**注意**: ARM テンプレートをデプロイするこの方法では、Azure PowerShell を使用します。同等の Azure CLI コマンド **az deployment create** を実行して、同じタスクを実行することもできます (詳細については、[Resource Manager テンプレートおよび Azure CLI を使用したリソースのデプロイ](https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli)を参照してください)。
 
     >**注**: 次のタスクに進む前に、デプロイが完了するのを待ちます。これには約 2 分かかります。
 
