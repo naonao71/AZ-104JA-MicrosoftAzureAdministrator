@@ -112,64 +112,79 @@ Contoso 社は、ボストン、ニューヨーク、シアトルの各オフィ
 
 1. 仮想ネットワークの一覧で、「**az104-05-vnet0**」 をクリックします。
 
-1. 「**az104-05-vnet0** 仮想ネットワーク」 ブレードの 「**設定**」 セクションで 「**ピアリング**」 をクリックしてから、「**+ 追加**」 をクリックします。
+1. 「**az104-05-vnet0** 仮想ネットワーク」 ブレードの 「**設定**」 セクションで 「**ピアリング(Peerings)**」 をクリックしてから、「**+ 追加(Add)**」 をクリックします。
+    >**注**: この手順では、**az104-05-vnet0** から **az104-05-vnet1**、**az104-05-vnet1** から **az104-05-vnet0** までの双方向の 2 つのローカル ピアリングを確立します。
 
-1. 次の設定でピアリングを追加します (その他の設定は既定値のままにします)。
+1. 次の設定で **This virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
     | 設定 | 値|
     | --- | --- |
-    | az104-05-vnet0 からリモート仮想ネットワークへのピアリングの名前 | **az104-05-vnet0_to_az104-05-vnet1** |
-    | 仮想ネットワーク デプロイ モデル | **Resource Manager** |
-    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
+    | ピアリングの名前(Peering link name) | **az104-05-vnet0_to_az104-05-vnet1** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
+
+1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
+
+    | ピアリングの名前(Peering link name) | **az104-05-vnet1_to_az104-05-vnet0** |
+    | Virtual network deployment model | **Resource Manager** |
+    | Subscription | このラボで使用している Azure サブスクリプションの名前 |
     | Virtual Network | **az104-05-vnet1 (az104-05-rg1)** |
-    | az104-05-vnet1 から az104-05-vnet0 へのピアリングの名前 | **az104-05-vnet1_to_az104-05-vnet0** |
-    | az104-05-vnet0 から az104-05-vnet1 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet1 から az104-05-vnet0 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet1 から az104-05-vnet0 への転送トラフィックを許可する | **無効** |
-    | az104-05-vnet0 から az104-05-vnet1 への転送トラフィックを許可する | **無効** |
-    | Allow gateway transit（ゲートウェイトランジットの許可） | **(チェックボックスをオフにする)** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
 
-    >**注**: この手順では、az104-05-vnet0 から az104-05-vnet1、az104-05-vnet1 から az104-05-vnet0 までの 2 つのローカル ピアリングを確立します。
+1. **Add** をクリックして保存します。
 
-1. 「**az104-05-vnet0** 仮想ネットワーク」 ブレードの 「**設定**」 セクションで 「**ピアリング**」 をクリックしてから、「**+ 追加**」 をクリックします。
+1. 再度「**az104-05-vnet0** 仮想ネットワーク」 ブレードの 「**設定**」 セクションで 「**ピアリング**」 をクリックしてから、「**+ 追加**」 をクリックします。
+    >**注**: この手順では、**az104-05-vnet0** から **az104-05-vnet2**、**az104-05-vnet2** から **az104-05-vnet0** までの双方向の 2 つのローカル ピアリングを確立します。
 
-1. 次の設定でピアリングを追加します (その他の設定は既定値のままにします)。
+1. 次の設定で **This virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
     | 設定 | 値|
     | --- | --- |
-    | az104-05-vnet0 からリモート仮想ネットワークへのピアリングの名前 | **az104-05-vnet0_to_az104-05-vnet2** |
-    | 仮想ネットワーク デプロイ モデル | **Resource Manager** |
-    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-    | 仮想ネットワーク | **az104-05-vnet2 (az104-05-rg2)** |
-    | az104-05-vnet2 から az104-05-vnet0 へのピアリングの名前 | **az104-05-vnet2_to_az104-05-vnet0** |
-    | az104-05-vnet0 から az104-05-vnet2 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet2 から az104-05-vnet0 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet2 から az104-05-vnet0 への転送トラフィックを許可する | **無効** |
-    | az104-05-vnet0 から az104-05-vnet2 への転送トラフィックを許可する | **無効** |
-    | Allow gateway transit（ゲートウェイトランジットの許可） | **(チェックボックスをオフにする)** |
+    | ピアリングの名前(Peering link name) | **az104-05-vnet0_to_az104-05-vnet2** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
 
-    >**注**: このステップでは、az104-05-vnet0 から az104-05-vnet2、az104-05-vnet2 から az104-05-vnet0 までの 2 つのグローバル ピアリングを確立します。
+1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
+
+    | ピアリングの名前(Peering link name) | **az104-05-vnet2_to_az104-05-vnet0** |
+    | Virtual network deployment model | **Resource Manager** |
+    | Subscription | このラボで使用している Azure サブスクリプションの名前 |
+    | Virtual Network | **az104-05-vnet2 (az104-05-rg2)** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
+
+1. **Add** をクリックして保存します。
 
 1. 「**仮想ネットワーク**」 ブレードに戻り、仮想ネットワークの一覧で 「**az104-05-vnet1**」 をクリックします。
 
 1. 「**az104-05-vnet1** 仮想ネットワーク」 ブレードの 「**設定**」 セクションで 「**ピアリング**」 をクリック し、「**+ 追加**」 をクリックします。
+    >**注**: この手順では、**az104-05-vnet1** から **az104-05-vnet2**、**az104-05-vnet2** から **az104-05-vnet1** までの双方向の 2 つのローカル ピアリングを確立します。
 
-1. 次の設定でピアリングを追加します (他のユーザーには既定値を残します)。
+1. 次の設定で **This virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
     | 設定 | 値|
     | --- | --- |
-    | az104-05-vnet1 からリモート仮想ネットワークへのピアリングの名前 | **az104-05-vnet1_to_az104-05-vnet2** |
-    | 仮想ネットワーク デプロイ モデル | **Resource Manager** |
-    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-    | 仮想ネットワーク | **az104-05-vnet2 (az104-05-rg2)** |
-    | az104-05-vnet2 から az104-05-vnet1 へのピアリングの名前 | **az104-05-vnet2_to_az104-05-vnet1** |
-    | az104-05-vnet1 から az104-05-vnet2 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet2 から az104-05-vnet1 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-05-vnet2 から az104-05-vnet1 への転送トラフィックを許可する | **無効** |
-    | az104-05-vnet1 から az104-05-vnet2 への転送トラフィックを許可する | **無効** |
-    | Allow gateway transit（ゲートウェイトランジットの許可） | **(チェックボックスをオフにする)** |
+    | ピアリングの名前(Peering link name) | **az104-05-vnet1_to_az104-05-vnet2** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
 
-    >**注**: このステップでは、az104-05-vnet1 から az104-05-vnet2、az104-05-vnet2 から az104-05-vnet1 までの 2 つのグローバル ピアリングを確立します。
+1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
+
+    | ピアリングの名前(Peering link name) | **az104-05-vnet2_to_az104-05-vnet1** |
+    | Virtual network deployment model | **Resource Manager** |
+    | Subscription | このラボで使用している Azure サブスクリプションの名前 |
+    | Virtual Network | **az104-05-vnet2 (az104-05-rg2)** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
+
+1. **Add** をクリックして保存します。
 
 #### タスク 3: サイト間の接続性をテストする 
 
