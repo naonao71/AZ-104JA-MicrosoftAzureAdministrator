@@ -126,6 +126,8 @@ Contoso 社は、ボストン、ニューヨーク、シアトルの各オフィ
 
 1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
+    | 設定 | 値|
+    | --- | --- |
     | ピアリングの名前(Peering link name) | **az104-05-vnet1_to_az104-05-vnet0** |
     | Virtual network deployment model | **Resource Manager** |
     | Subscription | このラボで使用している Azure サブスクリプションの名前 |
@@ -150,6 +152,8 @@ Contoso 社は、ボストン、ニューヨーク、シアトルの各オフィ
 
 1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
+    | 設定 | 値|
+    | --- | --- |
     | ピアリングの名前(Peering link name) | **az104-05-vnet2_to_az104-05-vnet0** |
     | Virtual network deployment model | **Resource Manager** |
     | Subscription | このラボで使用している Azure サブスクリプションの名前 |
@@ -176,6 +180,8 @@ Contoso 社は、ボストン、ニューヨーク、シアトルの各オフィ
 
 1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
+    | 設定 | 値|
+    | --- | --- |
     | ピアリングの名前(Peering link name) | **az104-05-vnet2_to_az104-05-vnet1** |
     | Virtual network deployment model | **Resource Manager** |
     | Subscription | このラボで使用している Azure サブスクリプションの名前 |
