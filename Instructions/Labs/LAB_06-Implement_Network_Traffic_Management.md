@@ -9,7 +9,7 @@ lab:
 
 ## ラボ シナリオ
 
-ハブおよびスポーク ネットワーク トポロジの Azure 仮想マシンを対象としたネットワーク トラフィックの管理テストを担当していましたが、Contoso は Azure 環境で実装を検討しています 前回のラボでテスト済みのメッシュ トポロジを作成しない方法。このテストでは、ハブを経由してトラフィックを強制的に流すユーザー定義ルートに依存してスポーク間の接続を実装する必要があり、また、レイヤ 4 およびレイヤ 7 ロード バランサーを使用して仮想マシン間でのトラフィック分散を行う必要があります。この目的のために、Azure Load Balancer (レイヤー 4) と Azure Application Gateway (レイヤー 7) を使用する予定です。
+ハブおよびスポーク ネットワーク トポロジの Azure 仮想マシンを対象としたネットワーク トラフィックの管理テストを担当していましたが、Contoso は Azure 環境で実装を検討しています。前回のラボではメッシュ トポロジを作成しましたが、このテストでは、ハブを経由してトラフィックを強制的に流すユーザー定義ルートに依存してスポーク間の接続を実装する必要があり、また、レイヤ 4 およびレイヤ 7 ロード バランサーを使用して仮想マシン間でのトラフィック分散を行う必要があります。この目的のために、Azure Load Balancer (レイヤー 4) と Azure Application Gateway (レイヤー 7) を使用する予定です。
 
 >**注**: このラボでは、既定ではデプロイ先として選択したリージョンの Standard_Dsv3 シリーズで使用可能な vCPU 数が合計 8 個必要であるため、Standard_D2s_v3 SKU の Azure VM を 4 つデプロイします。受講者が試用アカウントを使用しており、vCPU が 4 つに制限されている場合は、vCPU が 1 つ (Standard_B1s など) のみの VM サイズを使用できます。 
 
@@ -115,49 +115,65 @@ lab:
 
 1. 仮想ネットワークの一覧で、**az104-06-vnet01**をクリックします。 
 
-1. **「az104-06-vnet01** 仮想ネットワーク」 ブレードの **「設定」** セクションで、「**ピアリング**」 をクリックし、「**+ 追加**」 をクリック します。       
+1. **「az104-06-vnet01** 仮想ネットワーク」 ブレードの **「設定」** セクションで、「**ピアリング(Peering)**」 をクリックし、「**+ 追加(Add)**」 をクリック します。       
+    >**注**: この手順では、**az104-06-vnet1** から **az104-06-vnet2**、**az104-06-vnet2** から **az104-06-vnet1** までの双方向の 2 つのローカル ピアリングを確立します。
 
-1. 次の設定でピアリングを追加します (その他の設定は既定値のままにします)。
+1. 次の設定で **This virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
-    | 設定 | 値 |
+    | 設定 | 値|
     | --- | --- |
-    | az104-06-vnet01 からリモート仮想ネットワークへのピアリングの名前 | **az104-06-vnet01_to_az104-06-vnet2** |
-    | 仮想ネットワーク デプロイ モデル | **Resource Manager** |
-    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-    | Virtual network | **az104-06-vnet2 (az104-06-rg2)** |
-    | az104-06-vnet2 から az104-06-vnet01 へのピアリングの名前 | **az104-06-vnet2_to_az104-06-vnet01** |
-    | az104-06-vnet01 から az104-06-vnet2 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-06-vnet2 から az104-06-vnet01 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-06-vnet2 から az104-06-vnet01 への転送トラフィックを許可する | **無効** |
-    | az104-06-vnet01 から az104-06-vnet2 への転送トラフィックを許可する | **有効** |
-    | ゲートウェイ転送を許可する | **(チェックボックスをオフにする)** |
+    | ピアリングの名前(Peering link name) | **az104-06-vnet01_to_az104-06-vnet2** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Allow (default)** |
+    | Virtual network gateway | **None (default)** |
+
+1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
+
+    | 設定 | 値|
+    | --- | --- |
+    | ピアリングの名前(Peering link name) | **az104-06-vnet2_to_az104-06-vnet01** |
+    | Virtual network deployment model | **Resource Manager** |
+    | Subscription | このラボで使用している Azure サブスクリプションの名前 |
+    | Virtual Network | **az104-06-vnet2 (az104-06-rg2)** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
+
+1. **Add** をクリックして保存します。
 
     >**注**: 操作が完了するまで待ちます。
 
-    >**注**: このステップでは、az104-06-vnet01 から az104-06-vnet2、az104-06-vnet2 から az104-06-vnet01 までの 2 つのローカル ピアリングを確立します。
-
     >**注**: このラボで後ほど実装するスポーク仮想ネットワーク間のルーティングを容易にするために、**転送トラフィックを許可する**必要があります。
 
-1. **「az104-06-vnet01** 仮想ネットワーク」 ブレードの **「設定」** セクションで、「**ピアリング**」 をクリックし、「**+ 追加**」 をクリック します。       
+1. **「az104-06-vnet01** 仮想ネットワーク」 ブレードの **「設定」** セクションで、「**ピアリング(Peering)**」 をクリックし、「**+ 追加(Add)**」 をクリック します。       
+    >**注**: この手順では、**az104-06-vnet1** から **az104-06-vnet3**、**az104-06-vnet3** から **az104-06-vnet1** までの双方向の 2 つのローカル ピアリングを確立します。
 
-1. 次の設定でピアリングを追加します (その他の設定は既定値のままにします)。
+1. 次の設定で **This virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
-    | 設定 | 値 |
+    | 設定 | 値|
     | --- | --- |
-    | az104-06-vnet01 からリモート仮想ネットワークへのピアリングの名前 | **az104-06-vnet01_to_az104-06-vnet3** |
-    | 仮想ネットワーク デプロイ モデル | **Resource Manager** |
-    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-    | 仮想ネットワーク | **az104-06-vnet3 (az104-06-rg3)** |
-    | az104-06-vnet3 から az104-06-vnet01 へのピアリングの名前 | **az104-06-vnet3_to_az104-06-vnet01** |
-    | az104-06-vnet01 から az104-06-vnet3 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-06-vnet3 から az104-06-vnet01 への仮想ネットワーク アクセスを許可する | **有効** |
-    | az104-06-vnet3 から az104-06-vnet01 への転送トラフィックを許可する | **無効** |
-    | az104-06-vnet01 から az104-06-vnet3 への転送トラフィックを許可する | **有効** |
-    | ゲートウェイ転送を許可する | **(チェックボックスをオフにする)** |
+    | ピアリングの名前(Peering link name) | **az104-06-vnet01_to_az104-06-vnet3** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Allow (default)** |
+    | Virtual network gateway | **None (default)** |
 
-    >**注**: このステップでは、az104-06-vnet01 から az104-06-vnet3、az104-06-vnet3 から az104-06-vnet01 までの 2 つのローカル ピアリングを確立します。これで、ハブとスポーク トポロジの設定が完了します (2 つのスポーク仮想ネットワークを使用)。
+1. 次の設定で **Remote virtual network** の設定を行います (その他の設定は既定値のままにします)。
 
-    >**注**: このラボで後ほど実装するスポーク仮想ネットワーク間のルーティングを容易にするために、**転送トラフィックを許可する**必要があります。
+    | 設定 | 値|
+    | --- | --- |
+    | ピアリングの名前(Peering link name) | **az104-06-vnet3_to_az104-06-vnet01** |
+    | Virtual network deployment model | **Resource Manager** |
+    | Subscription | このラボで使用している Azure サブスクリプションの名前 |
+    | Virtual Network | **az104-06-vnet3 (az104-06-rg3)** |
+    | Traffic to remote virtual network | **Allow(default)** |
+    | Traffic forwarded from remote virtual network | **Block traffic that originates from outside this virtual network** |
+    | Virtual network gateway | **None (default)** |
+
+1. **Add** をクリックして保存します。
+
+    >**注**: これで、ハブとスポーク トポロジの設定が完了します (2 つのスポーク仮想ネットワークを使用)。
+
+    >**注**: このラボで後ほど実装するスポーク仮想ネットワーク間のルーティングを容易にするために、**転送トラフィック(Traffic forwarded)** を **許可する(Allow)** 必要があります。
 
 #### タスク 3: 仮想ネットワーク ピアリングの推移性をテストする
 
