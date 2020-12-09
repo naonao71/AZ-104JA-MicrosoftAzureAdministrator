@@ -10,7 +10,7 @@ layout: home
 
 各ラボの演習とデモへのハイパーリンクを以下に一覧表示します。
 
-## 演習
+## ラボ
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
 | モジュール | ラボ |
