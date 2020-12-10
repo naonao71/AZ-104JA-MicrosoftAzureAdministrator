@@ -29,7 +29,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 このタスクでは、Azure Kubernetes Service クラスターをデプロイするために必要なリソース プロバイダーを登録します。
 
-1.[Azure portal](https://portal.azure.com) にサインインします。
+1. [Azure portal](https://portal.azure.com) にサインインします。
 
 1. Azure portal の右上にあるアイコンをクリックして **Azure Cloud Shell** を開きます。
 
