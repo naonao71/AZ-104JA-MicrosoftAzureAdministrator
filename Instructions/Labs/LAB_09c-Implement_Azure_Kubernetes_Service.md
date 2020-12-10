@@ -1,7 +1,7 @@
 ﻿---
 lab:
     title: '09c - Azure Kubernetes Service を実装する'
-    module: 'モジュール 09 ? サーバーレス コンピューティング'
+    module: 'モジュール 09 - サーバーレス コンピューティング'
 ---
 
 # ラボ 09c - Azure Kubernetes Service を実装する
