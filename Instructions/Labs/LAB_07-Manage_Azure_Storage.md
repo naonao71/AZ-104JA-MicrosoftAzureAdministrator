@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '07 - Azure Storage の管理'
     module: 'モジュール 07 - Azure Storage'
