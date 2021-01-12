@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '09c - Azure Kubernetes Service を実装する'
     module: 'モジュール 09 - サーバーレス コンピューティング'
@@ -37,7 +37,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
     > **注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
 
-1. 「Cloud Shell」 ウィンドウから、次のコマンドを実行して、Microsoft.Insights および Microsoft.AlertsManagement リソース プロバイダーを登録します。
+1. 「Cloud Shell」 ウィンドウから、次のコマンドを実行して、Microsoft.Kubernetes および Microsoft.KubernetesConfiguration リソース プロバイダーを登録します。
 
    ```pwsh
    Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes

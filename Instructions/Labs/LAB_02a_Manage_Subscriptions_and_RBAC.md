@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '02a - サブスクリプションと RBAC を管理する'
     module: 'モジュール 02 - ガバナンスとコンプライアンス'
@@ -62,7 +62,7 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
 1. ラボのコンピューターから **\\Allfiles\\Labs\\02\\az104-02a-customRoleDefinition.json** ファイルをメモ帳で開き、その内容を確認します。
 
-   ```json
+```json
    {
       "Name": "Support Request Contributor (Custom)",
       "IsCustom": true,
@@ -78,7 +78,7 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
           "/subscriptions/SUBSCRIPTION_ID"
       ]
    }
-   ```
+```
 
 1. JSON ファイルの `SUBSCRIPTION_ID` プレースホルダーを、クリップボードにコピーしたサブスクリプション ID に置き換えて、変更を保存します。
 
@@ -86,15 +86,15 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
 1. **Bash** や **PowerShell** のどちらかを選択するためのプロンプトが表示されたら、**PowerShell** を選択します。 
 
-    >**注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
+    >**注**: **Cloud Shell** の初回起動時に**「ストレージがマウントされていません」**というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
 
 1. 「Cloud Shell」 ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューの **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\02\az104-02a-customRoleDefinition.json** を Cloud Shell のホーム ディレクトリにアップロードします。
 
 1. Cloud Shell ウィンドウから、次の操作を実行して、カスタム ロール定義を作成します。
 
-   ```pwsh
+```pwsh
    New-AzRoleDefinition -InputFile $HOME/az104-02a-customRoleDefinition.json
-   ```
+```
 
 1. 「Cloud Shell」 ウィンドウを閉じます。
 
@@ -149,29 +149,31 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
 1. **「az104-02-aaduser1 - プロファイル」** ブレードで、**「オブジェクト ID」** 属性の値をコピーします。
 
-1. Azure portal の **「Cloud Shell」** で、**PowerShell** セッションを開始します。
+1. Azure portal 内の **「Cloud Shell」** で **PowerShell** セッションを開始します。
 
-1. 「Cloud Shell」 ウィンドウで、次の手順を実行してカスタム ロール定義の割り当てを削除します (`[object_ID]` プレースホルダーを、このタスクの前半でコピーした **az104-02-aaduser1** の Azure Active Directory ユーザー アカウントの **object ID** 属性の値で置き換えます)。
+1. 「Cloud Shell」 ウィンドウで、次の手順を実行してカスタム ロール定義の割り当てを削除します (`「object_ID」` プレースホルダーを、このタスクの前半でコピーした **az104-02-aaduser1** の Azure Active Directory ユーザー アカウントの **object ID** 属性の値で置き換えます)。
 
-   ```pwsh
+```pwsh
    $scope = (Get-AzRoleAssignment -RoleDefinitionName 'Support Request Contributor (Custom)').Scope
 
    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
-   ```
+```
 
 1. 「Cloud Shell」 ウィンドウから次の手順を実行して、カスタム ロールの定義を削除します。
 
-   ```pwsh
+```pwsh
    Remove-AzRoleDefinition -Name 'Support Request Contributor (Custom)' -Force
-   ```
+```
 
 1. Azure portal で、**Azure Active Directory** の **「ユーザー - すべてのユーザー」** ブレードに戻り、**az104-02-aaduser1** ユーザー アカウントを削除します。
 
 1. Azure portal で、**az104-02-mg1** 管理グループに移動し、**詳細**を表示します。
 
-1. Azure サブスクリプションを表すエントリの右側にある **「省略記号」** アイコンを右クリックし、**「移動」** をクリックします。
+1. Azure サブスクリプションを表すエントリの右側にある**「省略記号」** アイコンを右クリックし、**「移動」** をクリックします。
 
 1. **「移動」** ブレードで、サブスクリプションが最初に含まれている管理グループを選択し、**「保存」** をクリックします。 
+
+  >**注**: このラボを実行する前にカスタム管理グループ階層を作成していない限り、これは **テナント ルート管理グループ** となります。
 
 1. **「管理グループ」** ブレードに戻り、**az104-02-mg1** 管理グループの右側にある **「省略記号」** アイコンを右クリックし、**「削除」** をクリックします。
 
