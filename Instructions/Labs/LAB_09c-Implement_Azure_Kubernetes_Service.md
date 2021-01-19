@@ -52,7 +52,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 このタスクでは、Azure portal を使用して Azure Kubernetes Service クラスターをデプロイします。
 
-1. Azure portal で、「**Kubernetes サービス**」を検索してから、「**Kubernetes サービス**」 ブレードで 「**+ 追加**」 をクリックし、「**+ Kubernetes クラスターの追加**」 をクリックします。 
+1. Azure portal で、「**Kubernetes サービス**」を検索してから、「**Kubernetes サービス**」 ブレードで 「**+ 追加**」 をクリックし、「**+ Kubernetes クラスターの追加**」 をクリックします。 
 
 1. **「Kubernetes クラスターの作成」** ブレードの **「基本」** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
