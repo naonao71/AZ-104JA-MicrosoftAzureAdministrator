@@ -71,7 +71,7 @@ lab:
 
     | 設定 | 値 |
     | --- | ---|
-    | 名前 | **ステージング** |
+    | 名前 | *staging* |
     | 設定の複製先 | **設定を複製しない**|
 
 1. Web アプリの **「デプロイ スロット」** ブレードに戻り、新しく作成されたステージング スロットを表すエントリをクリックします。 
@@ -136,17 +136,17 @@ lab:
 1. Cloud Shell ウィンドウで、次のコマンドを実行してリモート git（App Service で設定した ローカル Git 環境）を追加します (`[deployment_user_name]`と`[git_clone_url]` のプレースホルダーを、前のタスクで指定した**ユーザースコープ**のユーザー名と **Git クローン URL** の値に置き換えます)。
 
    ```
-   git remote add [deployment_user_name] [git_clone_url]
+   git remote add staging [git_clone_url]
    ```
 
-    > **注**: `git remote add` の後の値は**デプロイ資格情報**のユーザー名と一致する必要はありませんが、一意である必要があります。
+    > **注**: `[]`は不要です。
 
 1. Cloud Shell ウィンドウから次のコマンドを実行して、サンプル Web アプリのコードをローカル リポジトリから Azure Web アプリのステージング デプロイ スロットにプッシュします (`[deployment_user_name]` プレースホルダーを、前のタスクで指定した**デプロイ資格情報**のユーザー名の値に 置き換えます)。
    ```
-   git push [deployment_user_name] master
+   git push staging master
    ```
 
-1. 認証を求められたら、`[deployment_user_name]` と対応するパスワード (前のタスクで設定したパスワード) を入力します。
+1. 認証を求められたら、ユーザ名 と対応するパスワード (前のタスクで設定したパスワード) を入力します。
 
 1. 「Cloud Shell」 ウィンドウを閉じます。
 
