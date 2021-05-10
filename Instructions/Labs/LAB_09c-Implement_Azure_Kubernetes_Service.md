@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '09c - Azure Kubernetes Service を実装する'
     module: 'モジュール 09 - サーバーレス コンピューティング'
@@ -15,9 +15,10 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 このラボでは次の内容を学習します。
 
-+ タスク 1: Azure Kubernetes Service クラスターをデプロイする
-+ タスク 2: Azure Kubernetes Service クラスターにポッドをデプロイする
-+ タスク 3: Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングする
++ タスク 1: Microsoft.Kubernetes および Microsoft.KubernetesConfiguration リソース プロバイダーを登録します。
++ タスク 2: Azure Kubernetes Service クラスターをデプロイする
++ タスク 3: Azure Kubernetes Service クラスターにポッドをデプロイする
++ タスク 4: Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングする
 
 ## 予想時間: 40 分
 
@@ -33,26 +34,25 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 1. Azure portal の右上にあるアイコンをクリックして **Azure Cloud Shell** を開きます。
 
-1. **Bash** や **PowerShell** のどちらかを選択するためのプロンプトが表示されたら、**PowerShell** を選択します。 
+1. **Bash** や **PowerShell** のどちらかを選択するためのプロンプトが表示されたら、**PowerShell** を選択します。
 
-    > **注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
+    >**注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。
 
 1. 「Cloud Shell」 ウィンドウから、次のコマンドを実行して、Microsoft.Kubernetes および Microsoft.KubernetesConfiguration リソース プロバイダーを登録します。
 
-   ```pwsh
+   ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
-   
+
    Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
    ```
 
-1. 「Cloud Shell」 ウィンドウを閉じます。   
-
+1. 「Cloud Shell」 ウィンドウを閉じます。
 
 #### タスク 2: Azure Kubernetes Service クラスターをデプロイする
 
 このタスクでは、Azure portal を使用して Azure Kubernetes Service クラスターをデプロイします。
 
-1. Azure portal で、「**Kubernetes サービス**」を検索してから、「**Kubernetes サービス**」 ブレードで 「**+ 追加**」 をクリックし、「**+ Kubernetes クラスターの追加**」 をクリックします。 
+1. Azure portal で、「**Kubernetes サービス**」を検索してから、「**Kubernetes サービス**」 ブレードで 「**+ 追加**」 をクリックし、「**+ Kubernetes クラスターの追加**」 をクリックします。
 
 1. **「Kubernetes クラスターの作成」** ブレードの **「基本」** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
@@ -70,16 +70,15 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
     | 設定 | 値 |
     | ---- | ---- |
-    | 仮想ノード | **Disabled** |
-    | VM Scale Sets | **Enabled** |
-	
+    | 仮想ノードを有効にする | **無効** (既定) |
+    | 仮想マシン スケール セットを有効にする | **有効** (既定) |
+
 1. **「次へ: 認証 >」** をクリックし、**「Kubernetes クラスターの作成」** ブレードの **「認証」** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
     | 設定 | 値 |
     | ---- | ---- |
-    | サービス プリンシパル | 既定値を受け入れる |
-    | RBAC を有効にする | **Yes** |
-
+    | 認証方法 | **システム割り当てマネージド ID** (既定) | 
+    | ロールベースのアクセス制御 (RBAC) | **Enabled** |
 
 1. **「次へ: ネットワーク >」** をクリックし、**「Kubernetes クラスターの作成」** ブレードの **「ネットワーク」** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
@@ -88,12 +87,11 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
     | ネットワーク構成 | **kubenet** |
     | DNS 名プレフィックス | 有効でグローバルに一意の DNS ホスト名 |
 
-1. **「次へ: 統合 >」** をクリックし、**「Kubernetes クラスターの作成」** ブレードの **「統合」** タブで、**「コンテナーの監視」** を **「無効」** に設定し、**「レビューと作成」** をクリックしてから **「作成」** をクリックします。 
+1. **「次へ: 統合 >」** をクリックし、**「Kubernetes クラスターの作成」** ブレードの **「統合」** タブで、**「コンテナーの監視」** を **「無効」** に設定し、**「レビューと作成」** をクリックし、検証が成功したことを確認して、「作成」 をクリックします。
 
-    > **注**: 運用シナリオでは、監視を有効にします。この場合、監視はラボでカバーされていないので無効になります。 
+    >**注**: 運用シナリオでは、監視を有効にします。この場合、監視はラボでカバーされていないので無効になります。
 
-    > **注**: デプロイが完了するのを待ちます。これにはおよそ 10 分かかります。
-
+    >**注**: デプロイが完了するのを待ちます。これにはおよそ 10 分かかります。
 
 #### タスク 3: Azure Kubernetes Service クラスターにポッドをデプロイする
 
@@ -101,7 +99,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 1. デプロイ ブレードで、**「リソースに移動」** リンクをクリックします。
 
-1. **「az104-9c-aks1** Kubernetes サービス」 ブレードの **「設定」** セクションで、**「ノード プール」** をクリックします。
+1. 「**az104-9c-aks1** Kubernetes サービス」 ブレードの **「設定」** セクションで、**「ノード プール」** をクリックします。
 
 1. **「az104-9c-aks1 - ノード プール」** ブレードで、クラスターが 1 つのノードを持つ単一プールで構成されていることを確認します。
 
@@ -117,7 +115,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
     AKS_CLUSTER='az104-9c-aks1'
 
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER
-    ``` 
+    ```
 
 1. **Cloud Shell** ウィンドウから次のコマンドを実行して、AKS クラスターへの接続を確認します。
 
@@ -125,7 +123,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
     kubectl get nodes
     ```
 
-1. **Cloud Shell** ウィンドウで出力を確認し、この時点でクラスターが構成する 1 つのノードが **準備完了**状態を報告していることを確認します。 
+1. **Cloud Shell** ウィンドウで出力を確認し、この時点でクラスターが構成する 1 つのノードが **準備完了**状態を報告していることを確認します。
 
 1. **Cloud Shell** ウィンドウから次のコマンドを実行して、Docker Hub から **nginx** イメージをデプロイします。
 
@@ -170,6 +168,11 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 1. **Cloud Shell** ウィンドウから次のコマンドを実行し、ポッドの数を 2 に増やしてデプロイをスケーリングします。
 
     ```sh
+
+    RESOURCE_GROUP='az104-09c-rg1'
+
+    AKS_CLUSTER='az104-9c-aks1'
+
     kubectl scale --replicas=2 deployment/nginx-deployment
     ```
 
@@ -199,13 +202,13 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 1. **Cloud Shell** ウィンドウから次のコマンドを実行して、デプロイをスケーリングします。
 
-    ```
+    ```sh
     kubectl scale --replicas=10 deployment/nginx-deployment
     ```
 
 1. **Cloud Shell** ウィンドウから次のコマンドを実行して、デプロイのスケーリング結果を確認します。
 
-    ```
+    ```sh
     kubectl get pods
     ```
 
@@ -213,7 +216,7 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 1. **「Cloud Shell」** ウィンドウから次のコマンドを実行して、クラスター ノード間でのポッドの配分を確認します。
 
-    ```
+    ```sh
     kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name
     ```
 
@@ -221,16 +224,15 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 1. **Cloud Shell** ウィンドウから次のコマンドを実行して、デプロイを削除します。
 
-    ```
+    ```sh
     kubectl delete deployment nginx-deployment
     ```
 
 1. **「Cloud Shell」** ウィンドウを閉じます。
 
-
 #### リソースをクリーン アップする
 
-   > **注**: 新しく作成した Azure リソースのうち、使用しないリソースは必ず削除してください。使用しないリソースを削除しないと、予期しないコストが発生する場合があります。
+   >**注**: 新しく作成した Azure リソースのうち、使用しないリソースは必ず削除してください。使用しないリソースを削除しないと、予期しないコストが発生する場合があります。
 
 1. Azure portal で、**Cloud Shell** ウィンドウ内で **Bash** シェル セッションを開きます。
 
@@ -246,12 +248,12 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
    az group list --query "[?starts_with(name,'az104-09c')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
 
-    > **注**: コマンドは非同期に実行されるので (--nowait パラメーターで決定される)、同じ Bash セッション内ですぐに別の Azure CLI コマンドを実行できますが、リソース グループが実際に削除されるまでに数分かかります。
+    >**注**: コマンドは非同期に実行されるので (--nowait パラメーターで決定される)、同じ Bash セッション内ですぐに別の Azure CLI コマンドを実行できますが、リソース グループが実際に削除されるまでに数分かかります。
 
 #### レビュー
 
 このラボでは次の内容を学習しました。
 
-- Azure Kubernetes Service クラスターをデプロイしました
-- Azure Kubernetes Service クラスターにポッドをデプロイしました
-- Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングしました
++ Azure Kubernetes Service クラスターをデプロイしました
++ Azure Kubernetes Service クラスターにポッドをデプロイしました
++ Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングしました

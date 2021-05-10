@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '02a - サブスクリプションと RBAC を管理する'
     module: 'モジュール 02 - ガバナンスとコンプライアンス'
@@ -6,6 +6,10 @@ lab:
 
 # ラボ 02a - サブスクリプションと RBAC を管理する
 # 学生用ラボ マニュアル
+
+## ラボの要件:
+
+このラボでは、Azure Active Directory (Azure AD) ユーザーを作成し、カスタムの Azure ロール ベースのアクセス制御 (RBAC) ロールを作成し、これらのロールを Azure AD ユーザーに割り当てるためのアクセス許可が必要です。すべてのラボ ホスティング業者がこの機能を提供できるわけではありません。このラボの可用性については、インストラクターに問い合わせてください。
 
 ## ラボ シナリオ
 
@@ -62,7 +66,7 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
 1. ラボのコンピューターから **\\Allfiles\\Labs\\02\\az104-02a-customRoleDefinition.json** ファイルをメモ帳で開き、その内容を確認します。
 
-```json
+   ```json
    {
       "Name": "Support Request Contributor (Custom)",
       "IsCustom": true,
@@ -78,7 +82,7 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
           "/subscriptions/SUBSCRIPTION_ID"
       ]
    }
-```
+   ```
 
 2. JSON ファイルの `SUBSCRIPTION_ID` プレースホルダーを、クリップボードにコピーしたサブスクリプション ID に置き換えて、変更を保存します。
 
@@ -88,13 +92,13 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
     >**注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
 
-5. 「Cloud Shell」 ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューの **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\02\az104-02a-customRoleDefinition.json** を Cloud Shell のホーム ディレクトリにアップロードします。
+5. 「Cloud Shell」 ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューの **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\02\\az104-02a-customRoleDefinition.json** を Cloud Shell のホーム ディレクトリにアップロードします。
 
 6. Cloud Shell ウィンドウから、次の操作を実行して、カスタム ロール定義を作成します。
 
-```pwsh
+   ```powershell
    New-AzRoleDefinition -InputFile $HOME/az104-02a-customRoleDefinition.json
-```
+   ```
 
 7. 「Cloud Shell」 ウィンドウを閉じます。
 
@@ -153,17 +157,17 @@ Contoso の Azure リソースの管理を強化するために、次の機能�
 
 5. 「Cloud Shell」 ウィンドウで、次の手順を実行してカスタム ロール定義の割り当てを削除します (`「object_ID」` プレースホルダーを、このタスクの前半でコピーした **az104-02-aaduser1** の Azure Active Directory ユーザー アカウントの **object ID** 属性の値で置き換えます)。
 
-```pwsh
+   ```powershell
    $scope = (Get-AzRoleAssignment -RoleDefinitionName 'Support Request Contributor (Custom)').Scope
 
    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
-```
+   ```
 
 6. 「Cloud Shell」 ウィンドウから次の手順を実行して、カスタム ロールの定義を削除します。
 
-```pwsh
+   ```powershell
    Remove-AzRoleDefinition -Name 'Support Request Contributor (Custom)' -Force
-```
+   ```
 
 7. Azure portal で、**Azure Active Directory** の **「ユーザー - すべてのユーザー」** ブレードに戻り、**az104-02-aaduser1** ユーザー アカウントを削除します。
 

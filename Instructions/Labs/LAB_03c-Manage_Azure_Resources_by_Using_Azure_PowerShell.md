@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '03c - Azure PowerShell を使用して Azure リソースを管理する'
     module: 'モジュール 03 - Azure 管理'
@@ -33,7 +33,7 @@ lab:
 
 1. **Bash** や **PowerShell** のどちらかを選択するためのプロンプトが表示されたら、**PowerShell** を選択します。 
 
-    > **注**: **Cloud Shell** の初回起動時に「**ストレージがマウントされていません**」というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
+    >**注**: **Cloud Shell** の初回起動時に **「ストレージがマウントされていません」** というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**「ストレージの作成」** を選択します。 
 
 1. メッセージが表示されたら、**「ストレージの作成」** をクリックし、「Azure Cloud Shell」 ウィンドウが表示されるまで待ちます。 
 
@@ -45,7 +45,7 @@ lab:
 
 1. 前のラボで作成した **az104-03b-rg1** リソース グループと同じ Azure リージョンにリソース グループを作成するには、Cloud Shell 内の PowerShell セッションから次を実行します。
 
-   ```pwsh
+   ```powershell
    $location = (Get-AzResourceGroup -Name az104-03b-rg1).Location
 
    $rgName = 'az104-03c-rg1'
@@ -54,12 +54,12 @@ lab:
    ```
 1. 新しく作成されたリソース グループのプロパティを取得するには、次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    Get-AzResourceGroup -Name $rgName
    ```
 1. このモジュールの前のラボで作成したものと同じ特性を持つ新しいマネージド ディスクを作成するには、次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    $diskConfig = New-AzDiskConfig `
     -Location $location `
     -CreateOption Empty `
@@ -76,7 +76,7 @@ lab:
 
 1. 新しく作成されたディスクのプロパティを取得するには、次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
@@ -86,37 +86,37 @@ lab:
 
 1. Azure マネージド ディスクのサイズを **64 GB** に増やすには、Cloud Shell 内の PowerShell セッションから次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    New-AzDiskUpdateConfig -DiskSizeGB 64 | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
    ```
 
 1. 変更が有効になっていることを確認するには、次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
 1. 現在の SKU が **Standard_LRS** であることを確認するには、次の手順を実行します。
 
-   ```pwsh
+   ```powershell
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
 1. ディスク パフォーマンス SKU を **Premium_LRS** に変更するには 、Cloud Shell 内の PowerShell セッションから次の手順を実行します。
 
-   ```pwsh
+   ```powershell
    New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
    ```
 
 1. 変更が有効になっていることを確認するには、次のコマンドを実行します。
 
-   ```pwsh
+   ```powershell
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
 #### リソースをクリーン アップする
 
-   > **注**: このラボでデプロイしたリソースは削除しないでください。このモジュールの次のラボで、それらを参照します。
+   >**注**: このラボでデプロイしたリソースは削除しないでください。このモジュールの次のラボで、それらを参照します。
 
 #### レビュー
 
