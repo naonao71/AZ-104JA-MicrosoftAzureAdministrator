@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '01 - Azure Active Directory ID を管理する'
     module: 'モジュール 01 - ID'
