@@ -164,11 +164,13 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内の **「Server Manager」** ウィンドウで、**「Loca Server」** をクリックし、**「IE Enhanced Security Configuration」** をクリックして、Administrators に対して **「off」** にします。
 
-1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内で、Web ブラウザーを起動し、[Microsoft Edge](https://www.microsoft.com/ja-jp/edge/business/download) ブラウザーをダウンロードしてインストールします。 
+1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内で、Web ブラウザーを起動します。
+
+1. [Microsoft Edge](https://www.microsoft.com/ja-jp/edge/business/download) の最新のビルド、 Windows 64-bit 用のインストーラーをダウンロードして仮想マシンにインストールします。 
 
     >**注**: Azure Portal が Internet Explorer のサポートを終了したので Microsoft Edge を使用します。
 
-1. Microsoft Edge ブラウザーを起動し、[Azure Portal](https://portal.azure.com) を参照して、資格情報を使用してサインインします。
+1. Microsoft Edge を起動し、[Azure Portal](https://portal.azure.com) を参照して、資格情報を使用してサインインします。
 
 1. Azure portal で、**「Recovery Services vaults」** を検索して選択し、**「Recovery Services vaults」** ブレードで、**「az104-10-rsv1」** をクリックします。
 
@@ -251,7 +253,7 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. **「Bacuup items (Azure Backup Agent)」** ブレードで **az104-10-vm1.** の **C:\\** ドライブを参照するエントリがあることを確認します。
 
-#### タスク 5: Azure Recovery Services エージェント (オプション) を使用してファイルの回復を実行する
+#### タスク 5: Azure Recovery Services エージェント を使用してファイルの回復を実行する (オプション) 
 
 このタスクでは、Azure Recovery Services エージェントを使用してファイルの復元を実行します。
 
@@ -281,7 +283,7 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. リモート デスクトップ セッションを終了します。
 
-#### タスク 6: Azure 仮想マシンのスナップショット (オプション) を使用してファイルの回復を実行する
+#### タスク 6: Azure 仮想マシンのスナップショット を使用してファイルの回復を実行する (オプション) 
 
 このタスクでは、Azure 仮想マシン レベルのスナップショット ベースのバックアップからファイルを復元します。
 
