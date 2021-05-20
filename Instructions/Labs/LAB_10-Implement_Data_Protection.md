@@ -164,9 +164,9 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内の **「Server Manager」** ウィンドウで、**「Loca Server」** をクリックし、**「IE Enhanced Security Configuration」** をクリックして、Administrators に対して **「off」** にします。
 
-1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内で、Web ブラウザーを起動し、Microsoft Edge ブラウザーをダウンロードしてインストールします。 
+1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内で、Web ブラウザーを起動し、[Microsoft Edge](https://www.microsoft.com/ja-jp/edge/business/download) ブラウザーをダウンロードしてインストールします。 
 
-    >**注**: Azure Portal が IE をサポートしなくなったので Microsoft Edge を使用します。
+    >**注**: Azure Portal が Internet Explorer のサポートを終了したので Microsoft Edge を使用します。
 
 1. Microsoft Edge ブラウザーを起動し、[Azure Portal](https://portal.azure.com) を参照して、資格情報を使用してサインインします。
 
