@@ -311,7 +311,13 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
  
    >**注**: このファイルは、このタスクの後半で、Azure 仮想マシン レベルのスナップショット ベースのバックアップから復元します。
 
-1. **az104-10-vm0** Azure 仮想マシンへのリモート デスクトップ セッション内で、Web ブラザーを起動し、[Azure Portal](https://portal.azure.com) を参照して、資格情報を使用してサインインします。 
+1. **az104-10-vm0** Azure 仮想マシンへのリモート デスクトップ セッションに切り替えます。
+
+1. [Microsoft Edge](https://www.microsoft.com/ja-jp/edge/business/download) の最新のビルド、 Windows 64-bit 用のインストーラーをダウンロードして仮想マシンにインストールします。 
+
+    >**注**: Azure Portal が Internet Explorer のサポートを終了したので Microsoft Edge を使用します。
+
+1. Microsoft Edge を起動し、[Azure Portal](https://portal.azure.com) を参照して、資格情報を使用してサインインします。 
 
 1. Azure portal で、**「Recovery Services vaults」** を検索して選択し、**「Recovery Services vaults」** ブレードで、**「az104-10-rsv1」** をクリックします。
 
