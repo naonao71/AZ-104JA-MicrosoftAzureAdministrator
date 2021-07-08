@@ -39,12 +39,12 @@ Contoso では、ボストン、ニューヨーク、シアトルの各オフィ
 
 1. Cloud Shell ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューで **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** と **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** を Cloud Shell ホーム ディレクトリにアップロードします。
 
-1. Cloud Shell ペインから、以下を実行して、ラボ環境をホストするリソース グループを作成します。最初の 2つのバーチャル ネットワークと 1 組の仮想マシンが `eastus` にデプロイされます。3 番目のバーチャル ネットワークと 3 番目の仮想マシンは、同じリソースグループにデプロイされますが、別の `westus` にデプロイされます。
+1. Cloud Shell ペインから、以下を実行して、ラボ環境をホストするリソース グループを作成します。最初の 2つのバーチャル ネットワークと 1 組の仮想マシンが `[Azure_region_1]` にデプロイされます。3 番目のバーチャル ネットワークと 3 番目の仮想マシンは、同じリソースグループにデプロイされますが、別の `[Azure_region_2]` にデプロイされます。
 
    ```powershell
-   $location1 = 'eastus'
+   $location1 = '[Azure_region_1]'
 
-   $location2 = 'westus'
+   $location2 = '[Azure_region_2]'
 
    $rgName = 'az104-05-rg1'
 
