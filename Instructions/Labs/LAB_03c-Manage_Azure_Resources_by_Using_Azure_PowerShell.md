@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '03c - Azure PowerShell を使用して Azure リソースを管理する'
     module: 'モジュール 03 - Azure 管理'
@@ -20,6 +20,10 @@ lab:
 + タスク 3: Azure PowerShell を使用してマネージド ディスクを構成する
 
 ## 予想時間: 20 分
+
+## アーキテクチャの図
+
+![image](../media/lab03c.png)
 
 ## 指示
 

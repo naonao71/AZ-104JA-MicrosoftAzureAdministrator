@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '09c - Azure Kubernetes Service を実装する'
     module: 'モジュール 09 - サーバーレス コンピューティング'
@@ -21,6 +21,10 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 + タスク 4: Azure Kubernetes Service クラスターでコンテナー化されたワークロードをスケーリングする
 
 ## 予想時間: 40 分
+
+## アーキテクチャの図
+
+![image](../media/lab09c.png)
 
 ## 指示
 

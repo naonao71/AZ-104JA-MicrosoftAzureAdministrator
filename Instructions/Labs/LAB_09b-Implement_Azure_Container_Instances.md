@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '09b - Azure Container Instancesの実装'
     module: 'モジュール 09 - サーバーレス コンピューティング'
@@ -19,6 +19,10 @@ Contoso は、仮想化されたワークロード用の新しいプラットフ
 - タスク 2: Azure Container Instances の機能を確認する
 
 ## 予想時間: 20 分
+
+## アーキテクチャの図
+
+![image](../media/lab09b.png)
 
 ## 指示
 
@@ -41,7 +45,7 @@ Contoso は、仮想化されたワークロード用の新しいプラットフ
     | コンテナー名 | **az104-9b-c1** |
     | リージョン | （US）米国東部 |
     | イメージのソース | **クイック スタート イメージ** |
-    | イメージ | **mcr.microsoft/azuredocs/aci-helloworld:latest (Linux)** |
+    | イメージ | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
 1. **「次: ネットワーク >」** をクリックし、**「コンテナー インスタンスの作成」** ブレードの **「ネットワーク」** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 

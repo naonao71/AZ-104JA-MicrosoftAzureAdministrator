@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '01 - Azure Active Directory ID を管理する'
     module: 'モジュール 01 - ID'
@@ -22,6 +22,9 @@ Contoso のユーザーが Azure AD を使用して認証できるようにす�
 + タスク 4: Azure AD のゲスト ユーザーを管理する 
 
 ## 予想時間: 30 分
+
+## アーキテクチャの図
+![image](../media/lab01.png)
 
 ## 手順
 
