@@ -22,7 +22,11 @@ Contoso には、Azure Container Instances を使用して実行するのに適�
 
 ## 予想時間: 40 分
 
-## 指示
+## アーキテクチャの図
+
+![image](../media/lab09c.png)
+
+## 手順
 
 ### 演習 1
 
