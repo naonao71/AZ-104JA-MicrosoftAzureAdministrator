@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '09b - Azure Container Instancesの実装'
     module: 'モジュール 09 - サーバーレス コンピューティング'
