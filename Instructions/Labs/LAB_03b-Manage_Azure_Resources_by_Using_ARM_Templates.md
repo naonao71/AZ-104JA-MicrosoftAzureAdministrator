@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '03b - ARM テンプレートを使用して Azure リソースを管理する'
     module: 'モジュール 03 - Azure 管理'
