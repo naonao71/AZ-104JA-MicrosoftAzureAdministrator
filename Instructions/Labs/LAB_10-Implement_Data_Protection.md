@@ -27,7 +27,7 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 ## アーキテクチャの図
 
-![image](../media/lab10.png)
+![image](../media/lab10.PNG)
 
 ## 手順
 
