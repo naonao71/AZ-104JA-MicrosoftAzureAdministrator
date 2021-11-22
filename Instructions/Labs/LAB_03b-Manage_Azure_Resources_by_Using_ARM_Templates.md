@@ -77,9 +77,6 @@ Azure portal を使用して、リソースのプロビジョニングとリソ�
    "sourceUri": {
        "type": "String"
    },
-   "sourceImageVersionId": {
-    "type": "String"
-   },
    "osType": {
        "type": "String"
    },
