@@ -48,7 +48,7 @@ Contoso では、ボストン、ニューヨーク、シアトルの各オフィ
    ```powershell
    $location1 = 'eastus'
 
-   $location2 = 'westus'
+   $location2 = 'centralus'
 
    $rgName = 'az104-05-rg1'
 
