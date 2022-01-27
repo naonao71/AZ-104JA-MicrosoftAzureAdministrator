@@ -53,7 +53,7 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
     | リージョン | （US）米国東部 |
     | 可用性オプション | **可用性ゾーン** |
     | 可用性ゾーン | **1** |
-    | イメージ | **Windows Server 2019 Datacenter - Gen1** |
+    | イメージ | **Windows Server 2022 Datacenter - Gen2** |
     | Azure Spotスポット インスタンス | **なし** |
     | サイズ | **Standard D2s v3** |
     | ユーザー名 | **Student** |
