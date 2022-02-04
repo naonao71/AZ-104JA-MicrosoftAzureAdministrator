@@ -251,7 +251,7 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. バックアップが完了したら、**「Close」** をクリックし、Microsoft Azure Backup を閉じます。
 
-1. Azure portal が表示されている Web ブラザー ウィンドウに切り替え、**「Recovery Services vaults」** ブレードに戻り、**「Protected items」** セクションで、**「Bacuup items」** をクリックします。 
+1. Azure portal が表示されている Web ブラザー ウィンドウに切り替え、**「Recovery Services vaults」** ブレードに戻り、**「Protected items」** セクションで、**「Backup items」** をクリックします。 
 
 1. **「az104-10-rsv1 - Backup items」** ブレードで、**「Azure Backup Agent」** をクリックします。
 
