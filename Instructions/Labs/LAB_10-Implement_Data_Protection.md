@@ -47,10 +47,10 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. Cloud Shell ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューで **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\10\\az104-10-vms-template.json** と **\\Allfiles\\Labs\\10\\az104-10-vms-parameters.json** を Cloud Shell ホーム ディレクトリにアップロードします。
 
-1. Cloud Shell ウィンドウから次のコマンドを実行して、仮想マシンをホストするリソース グループを作成します (`[Azure_region]` プレースホルダーを、Azure 仮想マシンをデプロイする Azure リージョンの名前に置き換えます)。
+1. Cloud Shell ウィンドウから次のコマンドを実行して、仮想マシンをホストするリソース グループを作成します (`[Azure_region]` プレースホルダーを、Azure 仮想マシンをデプロイする Azure リージョンの名前に置き換えます)。下記は 'eastus' にしています。
 
    ```powershell
-   $location = '[Azure_region]'
+   $location = 'eastus'
 
    $rgName = 'az104-10-rg0'
 
