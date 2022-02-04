@@ -253,9 +253,9 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. Azure portal が表示されている Web ブラザー ウィンドウに切り替え、**「Recovery Services vaults」** ブレードに戻り、**「Protected items」** セクションで、**「Bacuup items」** をクリックします。 
 
-1. **「az104-10-rsv1 - Bacuup items」** ブレードで、**「Azure Backup Agent」** をクリックします。
+1. **「az104-10-rsv1 - Backup items」** ブレードで、**「Azure Backup Agent」** をクリックします。
 
-1. **「Bacuup items (Azure Backup Agent)」** ブレードで **az104-10-vm1.** の **C:\\** ドライブを参照するエントリがあることを確認します。
+1. **「Bacuup items (Azure Backup Agent)」** ブレードで **az104-10-vm1** の **C:\\** ドライブを参照するエントリがあることを確認します。
 
 #### タスク 5: Azure Recovery Services エージェント を使用してファイルの回復を実行する (オプション) 
 
