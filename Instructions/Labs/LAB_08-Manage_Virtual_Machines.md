@@ -115,10 +115,10 @@ Azure 仮想マシンをデプロイおよび構成するためのさまざま�
     | 設定 | 値 |
     | --- | --- |
     | リソース グループ | **az104-08-rg01** |
-    | Network Interface Name | **az104-08-vm1-nic1** |
-    | Public Ip Address Name | **az104-08-vm1-ip** |
-    | Virtual Machine Name | **az104-08-vm1** |
-    | Virtual Machine Computer Name | **az104-08-vm1** |
+    | Network Interface Name1 | **az104-08-vm1-nic1** |
+    | Public Ip Address Name1 | **az104-08-vm1-ip** |
+    | Virtual Machine Name1 | **az104-08-vm1** |
+    | Virtual Machine Computer Name1 | **az104-08-vm1** |
     | Admin Username | **Student** |
     | Admin Password | **Pa55w.rd1234** |
     | Enable Hotpatching | **false** |
