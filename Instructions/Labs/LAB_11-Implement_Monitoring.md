@@ -111,7 +111,7 @@ Azure リソースのパフォーマンスと構成に関する分析情報を�
     | サブスクリプション | このラボで使用する Azure サブスクリプションの名前 |
     | リソース グループ | **az104-11-rg1** |
     | 場所 | [ワークスペース マッピングのドキュメント](https://docs.microsoft.com/ja-jp/azure/automation/how-to/region-mappings)に基づいて決定される Azure リージョンの名前 |
-    | Azure 実行アカウントの作成 | **はい** |
+
 
     > **注**: [ワークスペース マッピングのドキュメント](https://docs.microsoft.com/ja-jp/azure/automation/how-to/region-mappings)に基づいて Azure リージョンを指定していることを確認します。
 
