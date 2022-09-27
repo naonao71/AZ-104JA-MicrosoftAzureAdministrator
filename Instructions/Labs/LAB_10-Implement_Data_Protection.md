@@ -47,6 +47,8 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
 1. Cloud Shell ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューで **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\10\\az104-10-vms-template.json** と **\\Allfiles\\Labs\\10\\az104-10-vms-parameters.json** を Cloud Shell ホーム ディレクトリにアップロードします。
 
+    >**注**: parameters ファイルの adminPassword の値を変更し、**独自パスワード** にすることができます。
+
 1. Cloud Shell ウィンドウから次のコマンドを実行して、仮想マシンをホストするリソース グループを作成します (`[Azure_region]` プレースホルダーを、Azure 仮想マシンをデプロイする Azure リージョンの名前に置き換えます)。下記は 'eastus' にしています。
 
    ```powershell
@@ -164,7 +166,7 @@ Azure 仮想マシンとオンプレミス コンピューターでホストさ�
 
     >**注**: 以降の操作は英語版の Windows Server を使用します。
 
-1. プロンプトが表示されたら、**Student**のユーザー名と **Pa55w.rd1234** パスワードを使用してサインインします。
+1. プロンプトが表示されたら、**Student**のユーザー名と **Pa55w.rd1234** もしくは **独自パスワード** を使用してサインインします。
 
 1. **az104-10-vm1** Azure 仮想マシンへのリモート デスクトップ セッション内の **「Server Manager」** ウィンドウで、**「Loca Server」** をクリックし、**「IE Enhanced Security Configuration」** をクリックして、Administrators に対して **「off」** にします。
 
