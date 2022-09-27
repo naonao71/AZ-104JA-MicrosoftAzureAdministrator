@@ -50,6 +50,8 @@ lab:
 
 1. Cloud Shell ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューで **「アップロード」** をクリックして、ファイル **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** と **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** を Cloud Shell ホーム ディレクトリにアップロードします。
 
+    >**注**: parameters ファイルの adminPassword の値を変更し、**独自パスワード** にすることができます。
+
 1. 「Cloud Shell」 ペインから次を実行して、ラボ環境をホストする最初のリソース グループを作成します(「(Get-AzLocation).Location」 コマンドレットを使用して、リージョン一覧を取得できます)。
 
    ```powershell
