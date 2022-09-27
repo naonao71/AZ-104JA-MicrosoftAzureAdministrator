@@ -48,6 +48,8 @@ lab:
 
 1. Cloud Shell ウィンドウのツールバーで、**「ファイルのアップロード/ダウンロード」** アイコンをクリックし、ドロップダウン メニューで **「アップロード」** を選択して、ファイル **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** および **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** を Cloud Shell ホーム ディレクトリにアップロードします。
 
+    >**注**: parameters ファイルの adminPassword の値を変更し、**独自パスワード** にすることができます。
+
 1. 「Cloud Shell」 ウィンドウから次のコマンドを実行して、仮想マシンをホストするリソース グループを作成します。
 
     >**注**: Azure リージョンの名前を一覧表示するには、`(Get-AzLocation).Location` を実行します
