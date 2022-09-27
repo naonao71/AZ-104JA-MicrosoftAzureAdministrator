@@ -287,16 +287,16 @@ lab:
 
    > **注**: この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。手動で作成したルートテーブルを削除して以下のコマンドを実行します。
 
-```powershell
-$Route = New-AzRouteConfig -Name "az104-06-route-vnet2-to-vnet3" -AddressPrefix 10.63.0.0/20 -NextHopType "VirtualAppliance" -NextHopIpAddress 10.60.0.4
-$rt=New-AzRouteTable -Name "az104-06-rt23" -ResourceGroupName "az104-06-rg1" -Location "EASTUS" -DisableBgpRoutePropagation -Route $Route
-$vnet=Get-AzVirtualNetwork -Name az104-06-vnet2
-Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet -AddressPrefix "10.62.0.0/24" -RouteTable $rt | Set-AzVirtualNetwork
-$Route1 = New-AzRouteConfig -Name "az104-06-route-vnet3-to-vnet2" -AddressPrefix 10.62.0.0/20 -NextHopType "VirtualAppliance" -NextHopIpAddress 10.60.0.4
-$rt1=New-AzRouteTable -Name "az104-06-rt32" -ResourceGroupName "az104-06-rg1" -Location "EASTUS" -DisableBgpRoutePropagation -Route $Route1
-$vnet1=Get-AzVirtualNetwork -Name az104-06-vnet3
-Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet1 -AddressPrefix "10.63.0.0/24" -RouteTable $rt1 | Set-AzVirtualNetwork
-```
+   ```powershell
+   $Route = New-AzRouteConfig -Name "az104-06-route-vnet2-to-vnet3" -AddressPrefix 10.63.0.0/20 -NextHopType "VirtualAppliance" -NextHopIpAddress 10.60.0.4
+   $rt=New-AzRouteTable -Name "az104-06-rt23" -ResourceGroupName "az104-06-rg1" -Location "EASTUS" -DisableBgpRoutePropagation -Route $Route
+   $vnet=Get-AzVirtualNetwork -Name az104-06-vnet2
+   Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet -AddressPrefix "10.62.0.0/24" -RouteTable $rt | Set-AzVirtualNetwork
+   $Route1 = New-AzRouteConfig -Name "az104-06-route-vnet3-to-vnet2" -AddressPrefix 10.62.0.0/20 -NextHopType "VirtualAppliance" -NextHopIpAddress 10.60.0.4
+   $rt1=New-AzRouteTable -Name "az104-06-rt32" -ResourceGroupName "az104-06-rg1" -Location "EASTUS" -DisableBgpRoutePropagation -Route $Route1
+   $vnet1=Get-AzVirtualNetwork -Name az104-06-vnet3
+   Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet1 -AddressPrefix "10.63.0.0/24" -RouteTable $rt1 | Set-AzVirtualNetwork
+   ```
 
 1. 次の設定でルート テーブルを作成します (その他の設定は既定値のままにします)。
 
