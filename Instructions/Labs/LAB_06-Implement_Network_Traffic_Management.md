@@ -408,6 +408,66 @@ lab:
 
 このタスクでは、ハブ仮想ネットワーク内の 2 つの Azure 仮想マシンの前に Azure Load Balancer を実装します。
 
+> ロードバランサーの設定時に仮想ネットワークが表示されるまで時間がかかる場合があります。その場合のワークアラウンドとしては PowerShell で下記コマンドを実行して作成します（**az104-06-rg4** のリソースグループを削除してから実行してください）。その後、Azure Portalから作成されたロードバランサーを選択してバックエンドプールの設定でVMを追加します。
+
+```powershell
+$rgName='az104-06-rg4'
+$location='eastus'
+
+New-AzResourceGroup -Name $rgname -Location $location
+
+$publicip = New-AzPublicIpAddress -ResourceGroupName $rgName `
+-name "az104-06-pip4" `
+-location $location `
+-AllocationMethod Static `
+-Sku Standard
+
+## Create load balancer frontend configuration and place in variable. ##
+$fip = @{
+    Name = 'LoadBalancerFrontEnd'
+    PublicIpAddress = $publicIp 
+}
+$feip = New-AzLoadBalancerFrontendIpConfig @fip
+
+## Create backend address pool configuration and place in variable. ##
+$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'az104-06-lb4-be1'
+
+## Create the health probe and place in variable. ##
+$probe = @{
+    Name = 'az104-06-lb4-hp1'
+    Protocol = 'tcp'
+    Port = '80'
+    IntervalInSeconds = '5'
+    ProbeCount = '2'
+}
+$healthprobe = New-AzLoadBalancerProbeConfig @probe
+
+## Create the load balancer rule and place in variable. ##
+$lbrule = @{
+    Name = 'az104-06-lb4-lbrule1'
+    Protocol = 'tcp'
+    FrontendPort = '80'
+    BackendPort = '80'
+    IdleTimeoutInMinutes = '15'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bePool
+    probe = $healthprobe
+}
+$rule = New-AzLoadBalancerRuleConfig @lbrule -DisableOutboundSNAT
+
+## Create the load balancer resource. ##
+$loadbalancer = @{
+    ResourceGroupName = $rgName
+    Name = 'az104-06-lb4'
+    Location = 'eastus'
+    Sku = 'Standard'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bePool
+    LoadBalancingRule = $rule
+    Probe = $healthprobe
+}
+New-AzLoadBalancer @loadbalancer
+```
 1. Azure portal で **「ロード バランサー」** を検索して選択し、**「ロード バランサー」** ブレードで **「+ 作成」** をクリックします。
 
     > **注**: テナントによっては、以下の手順と異なる場合があります。その場合は、個別に各種設定を行う必要があります。
