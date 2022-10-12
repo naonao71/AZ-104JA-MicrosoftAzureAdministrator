@@ -24,7 +24,7 @@ lab:
 + タスク 3: 仮想ネットワーク ピアリングの推移性をテストする
 + タスク 4: ハブとスポークのトポロジのルーティングを構成する
 + タスク 5: Azure Load Balancer を実装する
-+ タスク 6: Azure Application Gateway を実装する
++ タスク 6: Azure Application Gateway を実装する（オプション）
 
 ## 予想時間: 60 分
 
@@ -551,7 +551,7 @@ New-AzLoadBalancer @loadbalancer
 
     > **注**: ブラウザー ウィンドウを更新するか、InPrivate モードを使用して再度開く必要があります。
 
-#### タスク 6: Azure Application Gateway を実装する
+#### タスク 6: Azure Application Gateway を実装する（オプション）
 
 このタスクでは、スポーク仮想ネットワーク内の 2 つの Azure 仮想マシンの前に Azure Application Gateway を実装します。
 
