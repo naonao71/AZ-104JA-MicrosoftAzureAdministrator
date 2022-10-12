@@ -555,6 +555,79 @@ New-AzLoadBalancer @loadbalancer
 
 このタスクでは、スポーク仮想ネットワーク内の 2 つの Azure 仮想マシンの前に Azure Application Gateway を実装します。
 
+> Azure Application Gateway の設定時に仮想ネットワークが表示されるまで時間がかかる場合があります。その場合のワークアラウンドとしては PowerShell で下記コマンドを実行して作成します。
+
+```powershell
+$rgName='az104-06-rg5'
+$location='eastus'
+
+New-AzResourceGroup -Name $rgname -Location $location
+
+$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
+  -Name subnet-appgw `
+  -AddressPrefix 10.60.3.224/27
+New-AzPublicIpAddress `
+  -ResourceGroupName $rgName `
+  -Location $location `
+  -Name az104-06-pip5 `
+  -AllocationMethod Static `
+  -Sku Standard
+
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName az104-06-rg1 -Name az104-06-vnet01
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name subnet-appgw
+$pip    = Get-AzPublicIPAddress -ResourceGroupName $rgName -Name az104-06-pip5
+$gipconfig = New-AzApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
+
+$backendPool = New-AzApplicationGatewayBackendAddressPool `
+  -Name az104-06-appgw5-be1 `
+  -BackendIPAddresses "10.62.0.4", "10.63.0.4"
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
+  -Name az104-06-appgw5-http1 `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Disabled `
+  -RequestTimeout 20
+
+$defaultlistener = New-AzApplicationGatewayHttpListener `
+  -Name az104-06-appgw5-rl1l1 `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
+  -Name az104-06-appgw5-rl1 `
+  -RuleType Basic `
+  -Priority 1 `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $backendPool `
+  -BackendHttpSettings $poolSettings
+
+$sku = New-AzApplicationGatewaySku `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
+  -Capacity 2
+
+New-AzApplicationGateway `
+  -Name az104-06-appgw5 `
+  -ResourceGroupName $rgName `
+  -Location $location `
+  -BackendAddressPools $backendPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
+```
+
 1. Azure portal で、**「VNET」** を検索して「**仮想ネットワーク**」選択します。
 
 1. **「仮想ネットワーク」** ブレードで、**「az104-06-vnet01」** をクリックします。
