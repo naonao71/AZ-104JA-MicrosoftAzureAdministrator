@@ -285,7 +285,7 @@ lab:
 
 1. Azure portal で **「ルート テーブル」** を検索して選択 し、**「ルート テーブル」** ブレードで **「+ 作成」** をクリックします。
 
-<details><summary>**注**: この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。<summary>
+<details><summary>**注**: この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。</summary>
     
     手動で作成したルートテーブルを削除して以下のコマンドを実行します。
 
@@ -302,7 +302,7 @@ lab:
    Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet1 -AddressPrefix "10.63.0.0/24" -RouteTable $rt1 | Set-AzVirtualNetwork
    ```
         
-   <div>
+   </div>
 
    </details>
        
