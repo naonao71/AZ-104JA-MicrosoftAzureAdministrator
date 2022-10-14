@@ -411,7 +411,7 @@ lab:
 このタスクでは、ハブ仮想ネットワーク内の 2 つの Azure 仮想マシンの前に Azure Load Balancer を実装します。
 
 <details><summary>ロードバランサーの設定時に仮想ネットワークが表示されるまで時間がかかる場合があります。その場合のワークアラウンドとしては PowerShell で下記コマンドを実行して作成します。</summary>
-**az104-06-rg4** のリソースグループを削除してから実行してください。その後、Azure Portalから作成されたロードバランサーを選択してバックエンドプールの設定でVMを追加します。
+az104-06-rg4 のリソースグループを削除してから実行してください。その後、Azure Portalから作成されたロードバランサーを選択してバックエンドプールの設定でVMを追加します。
 <div>
 
 ```powershell
@@ -563,8 +563,9 @@ New-AzLoadBalancer @loadbalancer
 
 このタスクでは、スポーク仮想ネットワーク内の 2 つの Azure 仮想マシンの前に Azure Application Gateway を実装します。
 
-> Azure Application Gateway の設定時に仮想ネットワークが表示されるまで時間がかかる場合があります。その場合のワークアラウンドとしては PowerShell で下記コマンドを実行して作成します。
-
+<details><summary>Azure Application Gateway の設定時に仮想ネットワークが表示されるまで時間がかかる場合があります。その場合のワークアラウンドとしては PowerShell で下記コマンドを実行して作成します。</summary>
+<div>
+    
 ```powershell
 $rgName='az104-06-rg5'
 $location='eastus'
@@ -635,6 +636,9 @@ New-AzApplicationGateway `
   -RequestRoutingRules $frontendRule `
   -Sku $sku
 ```
+
+</div>
+</details>
 
 1. Azure portal で、**「VNET」** を検索して「**仮想ネットワーク**」選択します。
 
