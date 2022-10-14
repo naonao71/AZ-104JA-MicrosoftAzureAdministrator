@@ -271,11 +271,8 @@ lab:
 
    ```powershell
    Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature
-
    Install-WindowsFeature -Name "RSAT-RemoteAccess-Powershell"
-
    Install-RemoteAccess -VpnType RoutingOnly
-
    Get-NetAdapter | Set-NetIPInterface -Forwarding Enabled
    ```
 
@@ -286,10 +283,8 @@ lab:
 1. Azure portal で **「ルート テーブル」** を検索して選択 し、**「ルート テーブル」** ブレードで **「+ 作成」** をクリックします。
 
 <details><summary>**注**: この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。</summary>
-    
-    手動で作成したルートテーブルを削除して以下のコマンドを実行します。
-
-    <div>
+手動で作成したルートテーブルを削除して以下のコマンドを実行します。
+<div>
     
    ```powershell
    $Route = New-AzRouteConfig -Name "az104-06-route-vnet2-to-vnet3" -AddressPrefix 10.63.0.0/20 -NextHopType "VirtualAppliance" -NextHopIpAddress 10.60.0.4
@@ -301,10 +296,9 @@ lab:
    $vnet1=Get-AzVirtualNetwork -Name az104-06-vnet3
    Set-AzVirtualNetworkSubnetConfig -name subnet0 -VirtualNetwork $vnet1 -AddressPrefix "10.63.0.0/24" -RouteTable $rt1 | Set-AzVirtualNetwork
    ```
-        
-   </div>
 
-   </details>
+</div>
+</details>
        
 1. 次の設定でルート テーブルを作成します (その他の設定は既定値のままにします)。
 
