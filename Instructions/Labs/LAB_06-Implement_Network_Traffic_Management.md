@@ -252,7 +252,7 @@ lab:
 1. **「IP 転送」** を **「有効」** に設定し、変更を保存します。
 
 <details><summary>この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。</summary>
-PowerShell で**「IP 転送」** を **「有効」** に設定します。
+PowerShell で「IP 転送」を「有効」に設定します。
 <div>
     
    ```powershell
