@@ -251,6 +251,24 @@ lab:
 
 1. **「IP 転送」** を **「有効」** に設定し、変更を保存します。
 
+<details><summary>この後の手順でサブネットが表示されるまで時間がかかる場合があります。その際の回避策として PowerShell コマンドで対応します。</summary>
+PowerShell で**「IP 転送」** を **「有効」** に設定します。
+<div>
+    
+   ```powershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name az104-06-nic0 -ResourceGroupName az104-06-rg1
+
+## Set the IP forwarding setting to enabled. ##
+$nic.EnableIPForwarding = 1
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+   ```
+
+</div>
+</details>
+
    > **注**: この設定は、2 つのスポーク仮想ネットワーク間でトラフィックをルーティングするルーターとして **az104-06-vm0** が機能するために必要です。
 
    > **注**: ここで、ルーティングをサポートするように **az104-06-vm0** 仮想マシンのオペレーティング システムを構成する必要があります。
